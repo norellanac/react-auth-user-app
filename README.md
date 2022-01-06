@@ -1,6 +1,6 @@
 # App en react, autenticacion y mensajes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+En este commit aun no es funcional el FrontEnd pero tambien es importante la entrega y el despliegue de la aplicacion a tiempo. y mientras pruebas verifica se tiene un tiempo para completar el requerimiento [Create React App](https://github.com/facebook/create-react-app).
 
 ## Scripts
 
