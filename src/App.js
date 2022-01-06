@@ -1,21 +1,16 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Header from "./components/layout/Header";
-
-/* function App() {
-  return (
-    <div className="App">
-      <Header></Header>
-    </div>
-  );
-} */
+import Footer from "./components/layout/Footer";
+import { BrowserRouter, Routes, Route, Link, Outlet } from "react-router-dom";
 
 const App = ({ children, props }) => {
   console.log(props);
   return (
     <div className="App">
-      <Header></Header>
+      <Header />
       <main>{children}</main>
+      <Footer />
     </div>
   );
 };
