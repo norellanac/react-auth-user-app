@@ -19,8 +19,8 @@ import { Navbar, Container } from "react-bootstrap";
 
 function Footer(props) {
   return (
-    <div>
-      <section className="mt-5">
+    <div> <br/>
+      <section className="mt-5 pt-5">
         <Navbar fixed="bottom" bg="primary" variant="dark">
           <Container>
             <Navbar.Brand href="#home">norellanac</Navbar.Brand>

@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 
-import LoginPage from "./components/layout/Login";
-import Register from "./components/layout/Register";
+import LoginPage from "./screens/Login";
+import Register from "./screens/Register";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route, Link, Outlet } from "react-router-dom";
 
@@ -16,8 +16,9 @@ ReactDOM.render(
         <Route path="login" element={<LoginPage />}></Route>
         <Route path="register" element={<Register />}></Route>
       </Routes>
+      <App />
     </BrowserRouter>
-    <App />
+
   </React.StrictMode>,
   document.getElementById("root")
 );
