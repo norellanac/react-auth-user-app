@@ -3,15 +3,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSave, faMobileAlt, faMap } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Form, Row, Col, Button } from "react-bootstrap";
+import { Form, Alert, Col, Button } from "react-bootstrap";
 import { apiUrl } from "./../App";
+import AlertMessage from "../components/layout/AlertMessage";
 
 function Register(props) {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState(``);
   const [username, setUsername] = useState(``);
   const [email, setEmail] = useState(``);
-
+  const [errorMessage, setErrorMessage] = useState(false);
+  const [message, setMessage] = useState(``);
   const [data, setData] = useState(``);
 
   const registerUSer = async function () {
@@ -33,24 +35,43 @@ function Register(props) {
         const isJson = response.headers
           .get("content-type")
           ?.includes("application/json");
-        const data = isJson && (await response.json());
+        const resp = isJson && (await response.json());
 
         // check for error response
         if (!response.ok) {
           // get error message from body or default to response status
-          const error = (data && data.message) || response.status;
+          const error = (resp && resp.message) || response.status;
+          console.debug("not ok : ", resp);
+          setErrorMessage(true);
+          setMessage(resp.message);
           return Promise.reject(error);
         }
-        setData(data);
+        setData(resp);
+        console.debug("ok : ", resp);
       })
       .catch((error) => {
         //this.setState({ errorMessage: error.toString() });
         console.error("There was an error!", error);
       });
+
+    console.debug("state data : ", data);
     //********************* */
   };
+
+  var alertMessage;
+  if (errorMessage) {
+    alertMessage = (
+      <Alert variant={'danger'} onClose={() => (setErrorMessage(false), setMessage(''))} dismissible>
+        <Alert.Heading>{'Hey'}</Alert.Heading>
+        <p>{message}</p>
+      </Alert>
+    );
+  }
+  console.log("error message: ", errorMessage);
   return (
     <div className="mt-5">
+      {alertMessage}
+
       <section className="pt-5 container">
         <p className="h1 text-primary mb-3 mt-3">Register</p>
         <Form>

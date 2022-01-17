@@ -1,10 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faEnvelopeOpenText,
-  faMobileAlt,
-  faMap,
-} from "@fortawesome/free-solid-svg-icons";
+import { faMap } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
   faLinkedin,
@@ -19,7 +15,9 @@ import { Navbar, Container } from "react-bootstrap";
 
 function Footer(props) {
   return (
-    <div> <br/>
+    <div>
+      {" "}
+      <br />
       <section className="mt-5 pt-5">
         <Navbar fixed="bottom" bg="primary" variant="dark">
           <Container>
