@@ -5,6 +5,7 @@ import App from "./App";
 
 import LoginPage from "./screens/Login";
 import Register from "./screens/Register";
+import Messages from "./screens/Messages";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route, Link, Outlet } from "react-router-dom";
 
@@ -15,10 +16,10 @@ ReactDOM.render(
         <Route path="/" element={<App />} />
         <Route path="login" element={<LoginPage />}></Route>
         <Route path="register" element={<Register />}></Route>
+        <Route path="/messages" element={<Messages />}></Route>
       </Routes>
       <App />
     </BrowserRouter>
-
   </React.StrictMode>,
   document.getElementById("root")
 );
